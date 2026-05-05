@@ -6,7 +6,7 @@ WORKDIR /src
 COPY ["DevOpsDemo.slnx", "./"]
 COPY ["MyApi/MyApi.csproj", "MyApi/"]
 COPY ["MyApi.Tests/MyApi.Tests.csproj", "MyApi.Tests/"]
-RUN dotnet restore
+RUN dotnet restore "DevOpsDemo.slnx"
 
 # Copy toàn bộ code còn lại và tiến hành đóng gói (Publish)
 COPY . .
