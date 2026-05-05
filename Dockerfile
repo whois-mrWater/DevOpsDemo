@@ -2,11 +2,13 @@
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 WORKDIR /src
 
-# Copy file cấu hình và tải các thư viện cần thiết
-COPY ["DevOpsDemo.slnx", "./"]
+# Copy chỉ các file csproj vào đúng thư mục của nó
 COPY ["MyApi/MyApi.csproj", "MyApi/"]
 COPY ["MyApi.Tests/MyApi.Tests.csproj", "MyApi.Tests/"]
-RUN dotnet restore
+
+# Tải thư viện trực tiếp từ các file csproj (Bỏ qua sln)
+RUN dotnet restore "MyApi/MyApi.csproj"
+RUN dotnet restore "MyApi.Tests/MyApi.Tests.csproj"
 
 # Copy toàn bộ code còn lại và tiến hành đóng gói (Publish)
 COPY . .
