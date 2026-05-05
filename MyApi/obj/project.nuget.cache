@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "AZRcx9pcH3M=",
+  "success": true,
+  "projectFilePath": "/Volumes/Doload/2572–HSU/qualyduan/DevOpsDemo/MyApi/MyApi.csproj",
+  "expectedPackageFiles": [
+    "/Users/alanhjhj/.nuget/packages/microsoft.aspnetcore.openapi/10.0.7/microsoft.aspnetcore.openapi.10.0.7.nupkg.sha512",
+    "/Users/alanhjhj/.nuget/packages/microsoft.openapi/2.0.0/microsoft.openapi.2.0.0.nupkg.sha512"
+  ],
+  "logs": []
+}

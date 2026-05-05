@@ -1,0 +1,31 @@
+name: DevOps Demo Pipeline
+
+# Kích hoạt quy trình này mỗi khi có người đẩy code (push) lên nhánh main
+on:
+  push:
+    branches: [ "main" ]
+
+jobs:
+  build-test-and-docker:
+    runs-on: ubuntu-latest # Mượn 1 server Ubuntu của GitHub
+
+    steps:
+    - name: 1. Clone Code từ Repo về Server ảo
+      uses: actions/checkout@v3
+
+    - name: 2. Cài đặt môi trường .NET 8
+      uses: actions/setup-dotnet@v3
+      with:
+        dotnet-version: '8.0.x'
+
+    - name: 3. Tải các thư viện (Restore)
+      run: dotnet restore
+
+    - name: 4. Biên dịch mã nguồn (Build)
+      run: dotnet build --no-restore
+
+    - name: 5. Chạy kiểm thử (Unit Test)
+      run: dotnet test --no-build --verbosity normal
+
+    - name: 6. Đóng gói ứng dụng thành Docker Image
+      run: docker build -t my-devops-api:latest .
