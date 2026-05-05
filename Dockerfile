@@ -3,7 +3,7 @@ FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 WORKDIR /src
 
 # Copy file cấu hình và tải các thư viện cần thiết
-COPY ["DevOpsDemo.sln", "./"]
+COPY ["DevOpsDemo.slnx", "./"]
 COPY ["MyApi/MyApi.csproj", "MyApi/"]
 COPY ["MyApi.Tests/MyApi.Tests.csproj", "MyApi.Tests/"]
 RUN dotnet restore
